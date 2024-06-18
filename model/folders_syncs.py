@@ -22,3 +22,16 @@ class FoldersSyncs:
     con.commit()
     con.close()
     return True
+  
+  @property
+  def insert(_file_path_text, _file_name, _file_ext):
+    try:
+      q_insert_folders = "INSERT INTO folders_syncs (file_path, file_name, file_ext) VALUES (?, ?, ?)"
+      cur.execute(q_insert_folders, (_file_path_text, _file_name, _file_ext))
+      con.commit()
+      con.close()
+    except sqlite3.OperationalError as e:
+      con.close()
+      print(f"Failed : {e}")
+      return False
+    
