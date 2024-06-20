@@ -4,10 +4,10 @@ con = sqlite3.connect('python_listfolderandfile.db')
 cur = con.cursor()
 
 class Folders:
-  def __init__(self):
-    print("run -> Folders")
+  # def __init__(self):
+  #   print("run -> Folders")
 
-  @property
+  # @property
   def create_table(self):
     try:
       cur.execute("CREATE TABLE IF NOT EXISTS folders (id INTEGER PRIMARY KEY AUTOINCREMENT, file_path TEXT, file_name varchar, file_ext varchar, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)")

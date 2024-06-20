@@ -4,10 +4,10 @@ con = sqlite3.connect('python_listfolderandfile.db')
 cur = con.cursor()
 
 class FoldersSyncs: 
-  def __init__(self):
-    print("run -> FoldersSyncs")
+  # def __init__(self):
+  #   print("run -> FoldersSyncs")
 
-  @property
+  # @property
   def create_table(self):
     try:
       cur.execute("CREATE TABLE IF NOT EXISTS folders_syncs (id INTEGER PRIMARY KEY AUTOINCREMENT, file_path TEXT, file_name varchar, file_ext varchar, created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP)")
@@ -23,7 +23,7 @@ class FoldersSyncs:
     con.close()
     return True
   
-  @property
+  # @property
   def insert(_file_path_text, _file_name, _file_ext):
     try:
       q_insert_folders = "INSERT INTO folders_syncs (file_path, file_name, file_ext) VALUES (?, ?, ?)"
